@@ -2,33 +2,12 @@ from collections import Counter
 
 class CheckoutSolution:
     def checkout(self, skus):
-        self._pricing = {
-            "A": 50,
-            "B": 30,
-            "C": 20,
-            "D": 15,
-            "E": 40, 
-            "F": 10,
-            "G": 20,
-            "H": 10,
-            "I":35,
-            "J":60,
-            "K":80,
-            "L":90,
-            "M":15,
-            "N":40,
-            "O":10,
-            "P":50,
-            "Q":30,
-            "R":50,
-            "S":30,
-            "T":20,
-            "U":40,
-            "V":50,
-            "W":20,
-            "X":90,
-            "Y":10,
-            "Z":50
+         self._pricing = {
+            "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, 
+            "F": 10, "G": 20, "H": 10, "I": 35, "J": 60,
+            "K": 80, "L": 90, "M": 15, "N": 40, "O": 10,
+            "P": 50, "Q": 30, "R": 50, "S": 20, "T": 20,
+            "U": 40, "V": 50, "W": 20, "X": 17, "Y": 20, "Z": 21
         }
 
         self._offers = {
@@ -93,7 +72,20 @@ class CheckoutSolution:
                 remaining = item_counts[item] % rule["self_quantity"]
                 item_counts[item] = total_self_quantity * rule["pay_for"] + remaining
 
-        total = 0
+        group_items = ["S", "T", "X", "Y", "Z"]
+        group_pool = []
+        for item in group_items:
+            group_pool+= [item] * item_counts[item]
+            item_counts[item] = 0
+
+        group_pool +=sort(key =lambda i: self._pricing[i], reverse=True)
+
+        while len(group_pool) >= 3:
+            total += 45
+            for _ in range(3):
+                group_pool.pop(0)
+        for item in group_pool:
+            item_counts[item] += 1
         for item, count in item_counts.items():
             free_count = min(count, free_items[item]) if item in free_items else 0
             payable_count = count - free_count
