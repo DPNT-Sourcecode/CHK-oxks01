@@ -9,7 +9,7 @@ class CheckoutSolution:
             "B": {"quantity" : 2, "offer_price": 45}
         }
         for i in skus:
-            if i not in our_pricing:
+            if i not in self._pricing:
                 return -1
             
         from collections import Counter
@@ -26,6 +26,7 @@ class CheckoutSolution:
                 total += count * self._pricing[item]
 
         return total
+
 
 
 
