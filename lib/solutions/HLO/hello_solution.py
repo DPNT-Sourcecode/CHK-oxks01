@@ -5,5 +5,3 @@ class HelloSolution:
     def hello(self, friend_name):
         message = f"Hello, {friend_name}!"
         return message
-
-
