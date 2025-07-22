@@ -9,26 +9,26 @@ class CheckoutSolution:
             "D": 15,
             "E": 40, 
             "F": 10,
-            "G":,
-            "H":,
-            "I":,
-            "J":,
-            "K":,
-            "L":,
-            "M":,
-            "N":,
-            "O":,
-            "P":,
-            "Q":,
-            "R":,
-            "S":,
-            "T":,
-            "U":,
-            "V":,
-            "W":,
-            "X":,
-            "Y":,
-            "Z":
+            "G": 20,
+            "H": 10,
+            "I":35,
+            "J":60,
+            "K":80,
+            "L":90,
+            "M":15,
+            "N":40,
+            "O":10,
+            "P":50,
+            "Q":30,
+            "R":50,
+            "S":30,
+            "T":20,
+            "U":40,
+            "V":50,
+            "W":20,
+            "X":90,
+            "Y":10,
+            "Z":50
         }
 
         self._offers = {
@@ -38,15 +38,35 @@ class CheckoutSolution:
             ],
             "B": [
                 {"quantity": 2, "offer_price": 45}
-            ]
+            ],
+            "H": [
+                 {"quantity": 10, "offer_price": 80},
+                {"quantity": 5, "offer_price": 45},
+            ],
+            "K": [
+                {"quantity": 2, "offer_price": 150}
+            ],
+            "P": [
+                {"quantity": 5, "offer_price": 200}
+            ],
+            "Q": [
+                {"quantity": 3, "offer_price": 80}
+            ],
+            "V": [
+                {"quantity": 3, "offer_price": 130}
+                {"quantity": 2, "offer_price": 90},
+            ],
         }
 
         self._free_item_offers = [
-            {"q_item": "E", "q_quantity": 2, "free_item": "B", "free_quantity": 1}
+            {"q_item": "E", "q_quantity": 2, "free_item": "B", "free_quantity": 1},
+            {"q_item": "N", "q_quantity": 3, "free_item": "M", "free_quantity": 1},
+            {"q_item": "R", "q_quantity": 3, "free_item": "Q", "free_quantity": 1},
         ]
 
         self._self_free_items = {
-            "F": {"self_quantity": 3, "pay_for": 2}
+            "F": {"self_quantity": 3, "pay_for": 2},
+            "U": {"self_quantity": 3, "pay_for": 2},
         }
 
         for ch in skus:
@@ -88,3 +108,4 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
