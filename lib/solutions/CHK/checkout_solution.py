@@ -22,9 +22,7 @@ class CheckoutSolution:
                  {"quantity": 10, "offer_price": 80},
                 {"quantity": 5, "offer_price": 45},
             ],
-            "K": [
-                {"quantity": 2, "offer_price": 150}
-            ],
+            "K": [{"quantity": 2, "offer_price": 120}], 
             "P": [
                 {"quantity": 5, "offer_price": 200}
             ],
@@ -102,5 +100,6 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
 
 
