@@ -7,7 +7,8 @@ class CheckoutSolution:
             "B": 30,
             "C": 20,
             "D": 15,
-            "E": 40
+            "E": 40, 
+            "F": 10
         }
 
         self._offers = {
@@ -67,5 +68,6 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
 
 
