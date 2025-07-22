@@ -53,8 +53,8 @@ class CheckoutSolution:
                 {"quantity": 3, "offer_price": 80}
             ],
             "V": [
-                {"quantity": 3, "offer_price": 130}
-                {"quantity": 2, "offer_price": 90},
+                {"quantity": 3, "offer_price": 130},
+                {"quantity": 2, "offer_price": 90}
             ],
         }
 
@@ -108,5 +108,6 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
 
 
