@@ -2,7 +2,7 @@ from collections import Counter
 
 class CheckoutSolution:
     def checkout(self, skus):
-         self._pricing = {
+        self._pricing = {
             "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, 
             "F": 10, "G": 20, "H": 10, "I": 35, "J": 60,
             "K": 80, "L": 90, "M": 15, "N": 40, "O": 10,
@@ -78,14 +78,16 @@ class CheckoutSolution:
             group_pool+= [item] * item_counts[item]
             item_counts[item] = 0
 
-        group_pool +=sort(key =lambda i: self._pricing[i], reverse=True)
+        group_pool.sort(key=lambda i: self._pricing[i], reverse=True)
 
+        total = 0
         while len(group_pool) >= 3:
             total += 45
             for _ in range(3):
                 group_pool.pop(0)
         for item in group_pool:
             item_counts[item] += 1
+
         for item, count in item_counts.items():
             free_count = min(count, free_items[item]) if item in free_items else 0
             payable_count = count - free_count
@@ -100,3 +102,4 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
