@@ -12,13 +12,25 @@ class CheckoutSolution:
         self._free_items = {
             "q_item": E, "q_quantity": 2, "free_item": B, "free_quantity": 1
         }
-        
+
         for i in skus:
             if i not in self._pricing:
                 return -1
             
         from collections import Counter
         item_counts = Counter(skus)
+
+        for offer in self._free_items:
+            q_item = offer["q_item"]
+            q_quantity = offer["q_quantity"]
+            free_item = offer["free_item"]
+            free_quantity = offer["free_quantity"]
+
+            if q_item in item_counts:
+                num_qualifiers = item_counts["q_items"] // q_quantity
+                num_free = num_qualifiers * free_quantity
+                if free_item in item_counts:
+                    item_counts = max(0, item_counts[free_item] - num_free)
 
         total = 0
         for item, count in item_counts.items():
@@ -31,6 +43,7 @@ class CheckoutSolution:
                 total += count * self._pricing[item]
 
         return total
+
 
 
 
