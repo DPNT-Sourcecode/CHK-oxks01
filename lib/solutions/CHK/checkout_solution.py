@@ -68,6 +68,3 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
-
-
-
