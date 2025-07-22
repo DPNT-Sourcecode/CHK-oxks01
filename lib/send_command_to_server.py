@@ -42,7 +42,7 @@ from runner.user_input_action import get_user_input
     |  8.  | If passed, go to step 1.                                              |
     +------+-----------------------------------------------------------------------+
  
-    You are encouraged to change this project as you please:
+    You are encouraged to change txhis project as you please:
          * You can use your preferred libraries.
          * You can use your own test framework.
          * You can change the file structure.
@@ -79,3 +79,4 @@ ChallengeSession\
     .with_config(Utils.get_config())\
     .with_action_provider(lambda: get_user_input(sys.argv[1:]))\
     .start()
+
