@@ -66,7 +66,7 @@ class CheckoutSolution:
 
         self._self_free_items = {
             "F": {"self_quantity": 3, "pay_for": 2},
-            "U": {"self_quantity": 3, "pay_for": 2},
+            "U": {"self_quantity": 4, "pay_for": 3}
         }
 
         for ch in skus:
@@ -108,6 +108,7 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
 
 
 
