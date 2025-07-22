@@ -8,6 +8,11 @@ class CheckoutSolution:
             "A": {"quantity" : 3, "offer_price": 130},
             "B": {"quantity" : 2, "offer_price": 45}
         }
+
+        self._free_items = {
+            "q_item": E, "q_quantity": 2, "free_item": B, "free_quantity": 1
+        }
+        
         for i in skus:
             if i not in self._pricing:
                 return -1
@@ -26,6 +31,7 @@ class CheckoutSolution:
                 total += count * self._pricing[item]
 
         return total
+
 
 
 
