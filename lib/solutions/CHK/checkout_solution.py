@@ -100,7 +100,7 @@ class CheckoutSolution:
 
   
             if item in self._offers:
-                offers = self._offers[item]
+                offers = sorted(self._offers[item], key=lambda o: -o["quantity"])
                 for offer in offers:
                     num_offer = payable_count // offer["quantity"]
                     total += num_offer * offer["offer_price"]
@@ -108,4 +108,5 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
 
