@@ -46,7 +46,7 @@ class CheckoutSolution:
                 free_items[free_item] += num_qualifiers * free_quantity
 
    
-        for item, rule in self._self_free_items():
+        for item, rule in self._self_free_items.items():
             if item in item_counts:
                 total_self_quantity = item_counts[item] // rule["self_quantity"]
                 remaining = item_counts[item] % rule["self_quantity"]
@@ -67,4 +67,5 @@ class CheckoutSolution:
             total += payable_count * self._pricing[item]
 
         return total
+
 
