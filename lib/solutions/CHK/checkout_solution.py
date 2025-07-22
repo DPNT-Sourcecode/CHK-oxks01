@@ -24,6 +24,10 @@ class CheckoutSolution:
             {"q_item": "E", "q_quantity": 2, "free_item": "B", "free_quantity": 1}
         ]
 
+        self._self_free_items = {
+            "F": {"self_quantity": 3, "pay_for": 2}
+        }
+
         for ch in skus:
             if ch not in self._pricing:
                 return -1
@@ -42,6 +46,12 @@ class CheckoutSolution:
                 free_items[free_item] += num_qualifiers * free_quantity
 
    
+        for item, rule in self._self_free_items:
+            if item in item_counts:
+                total_self_quantity = item_counts[item] // rule["self_quantity"]
+                remaining = item_counts[item] % rule["self_quantity"]
+                item_counts[item] = total_self_quantity * rule["pay_for"] + remaining
+
         total = 0
         for item, count in item_counts.items():
             free_count = min(count, free_items[item]) if item in free_items else 0
